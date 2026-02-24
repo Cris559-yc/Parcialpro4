@@ -29,3 +29,6 @@ Crear más WebComponents (ej: componente de servicios, componente de historial, 
 Guardar presupuestos en localStorage o integrar un backend (Node.js/PHP) con base de datos para historial y usuarios.
 Implementar validaciones más robustas (patrones, mensajes inline, manejo de errores).
 Usar control de versiones y estructura modular para agregar nuevas funciones sin afectar lo existente.
+
+Cristian Yahir Campos Aparicio.  SMSS109222
+Lindys Arely Martinez Herrera.   SMSS170822
