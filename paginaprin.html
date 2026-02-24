@@ -1,90 +1,232 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Parcial Ingeniería en Sistemas</title>
-    <style>
-        body{
-            margin:0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color:#f4f4f4;
-        }
+<meta charset="UTF-8">
+<title>Parcial Ingeniería en Sistemas</title>
 
-        /* Encabezado */
-        header{
-            display:flex;
-            justify-content: space-between;
-            align-items: center;
-            padding:20px;
-            background-color: white;
-            border-bottom:1px solid #ddd;
-        }
+<style>
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#f4f4f4;
+}
 
-        header img{
-            width:180px;
-        }
+/* Encabezado */
+header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
+    background-color: white;
+    border-bottom:1px solid #ddd;
+}
 
-        header h3{
-            color:#1a2dbf;
-            font-weight:bold;
-            font-size:16px;
-            text-align:right;
-        }
+header img{
+    width:160px;
+}
 
-        /* Sección principal */
-        .principal{
-            height:75vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-        }
+header h3{
+    color:#1a2dbf;
+    font-weight:bold;
+    font-size:16px;
+    text-align:right;
+}
 
-        .principal h1{
-            font-size:70px;
-            color:#333;
-            font-weight:900;
-        }
+/* Sección principal */
+.principal{
+    text-align:center;
+    padding:40px 20px 10px 20px;
+}
 
-        /* Pie de página */
-        footer{
-            background: linear-gradient(to right, #1a2dbf, #0f1a8c);
-            color:white;
-            text-align:center;
-            padding:20px;
-        }
+.principal h1{
+    font-size:50px;
+    color:#333;
+    font-weight:900;
+}
 
-        footer h4{
-            margin:0;
-            text-decoration: underline;
-        }
+/* Caja del sistema */
+.container{
+    width:450px;
+    margin:20px auto 40px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+}
 
-        footer p{
-            margin-top:10px;
-        }
+input[type="text"], select, button{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
 
-    </style>
+button{
+    background:#1a2dbf;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0f1a8c;
+}
+
+h4{
+    margin-top:15px;
+}
+
+label{
+    display:block;
+    margin:5px 0;
+}
+
+.resultado{
+    margin-top:15px;
+    font-weight:bold;
+    color:green;
+    background:#f0fff0;
+    padding:10px;
+    border-radius:5px;
+}
+
+/* Pie de página */
+footer{
+    background: linear-gradient(to right, #1a2dbf, #0f1a8c);
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+footer h4{
+    margin:0;
+    text-decoration: underline;
+}
+
+footer p{
+    margin-top:10px;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <!-- Logo -->
-        <img src="Logo.jpg" alt="Logo UGB">
+<header>
+    <img src="Logo.jpg" alt="Logo UGB">
+    <h3>
+        Parcial Primer Cómputo Ingeniería en Sistemas y<br>
+        Redes Informáticas
+    </h3>
+</header>
 
-        <!-- Texto derecha -->
-        <h3>
-            Parcial Primer Cómputo Ingeniería en Sistemas y<br>
-            Redes Informáticas
-        </h3>
-    </header>
+<section class="principal">
+    <h1>SISTEMA DE PRESUPUESTO TÉCNICO</h1>
+</section>
 
-    <section class="principal">
-        <h1>TU PAGINA WEB AQUI</h1>
-    </section>
+<div class="container">
 
-    <footer>
-        <h4>Integrantes del Equipo</h4>
-        <p>Cristian Yahir Campos Aparicio SMSS109222 &nbsp;&nbsp;&nbsp; Lindys Arely Martinez Herrera SMSS170822</p>
-    </footer>
+<form id="formPresupuesto">
+
+<input type="text" id="cliente" placeholder="Nombre del cliente" required>
+
+<h4>Seleccione los servicios:</h4>
+
+<label><input type="checkbox" value="25"> Formateo + instalación básica ($25)</label>
+<label><input type="checkbox" value="20"> Limpieza interna laptop ($20)</label>
+<label><input type="checkbox" value="45"> Cambio de disco HDD ($45)</label>
+<label><input type="checkbox" value="35"> Instalación SSD ($35)</label>
+<label><input type="checkbox" value="30"> Cambio de RAM ($30)</label>
+<label><input type="checkbox" value="20"> Eliminación de virus ($20)</label>
+<label><input type="checkbox" value="15"> Instalación de programas ($15)</label>
+<label><input type="checkbox" value="40"> Mantenimiento completo ($40)</label>
+
+<select id="urgencia" required>
+<option value="">Nivel de urgencia</option>
+<option value="1">Normal</option>
+<option value="1.2">Urgente (+20%)</option>
+<option value="1.5">De vida o muerte (+50%)</option>
+</select>
+
+<button type="submit">Calcular Presupuesto</button>
+
+</form>
+
+<resultado-presupuesto></resultado-presupuesto>
+
+</div>
+
+<footer>
+    <h4>Integrantes del Equipo</h4>
+    <p>Cristian Yahir Campos Aparicio SMSS109222 &nbsp;&nbsp;&nbsp; Lindys Arely Martinez Herrera SMSS170822</p>
+</footer>
+
+<script>
+
+
+// WEB COMPONENT
+
+class ResultadoPresupuesto extends HTMLElement{
+    constructor(){
+        super();
+        this.innerHTML = "<div class='resultado'></div>";
+    }
+
+    mostrarResultado(texto){
+        this.querySelector(".resultado").innerHTML = texto;
+    }
+}
+
+customElements.define("resultado-presupuesto", ResultadoPresupuesto);
+
+
+
+// EVENTO DEL FORMULARIO
+
+document.getElementById("formPresupuesto").addEventListener("submit", function(e){
+
+    e.preventDefault(); 
+
+    let cliente = document.getElementById("cliente").value.trim();
+    let urgencia = document.getElementById("urgencia").value;
+    let servicios = document.querySelectorAll("input[type='checkbox']:checked");
+
+    // VALIDACIONES
+    if(cliente === ""){
+        alert("Debe ingresar el nombre del cliente");
+        return;
+    }
+
+    if(servicios.length === 0){
+        alert("Debe seleccionar al menos un servicio");
+        return;
+    }
+
+    if(urgencia === ""){
+        alert("Debe seleccionar nivel de urgencia");
+        return;
+    }
+
+    let subtotal = 0;
+    let listaServicios = "";
+
+    servicios.forEach(servicio => {
+        subtotal += parseFloat(servicio.value);
+        listaServicios += "- " + servicio.parentElement.textContent + "<br>";
+    });
+
+    let total = subtotal * parseFloat(urgencia);
+
+    let componente = document.querySelector("resultado-presupuesto");
+
+    componente.mostrarResultado(
+        "Cliente: " + cliente +
+        "<br><br><strong>Servicios seleccionados:</strong><br>" +
+        listaServicios +
+        "<br>Subtotal: $" + subtotal.toFixed(2) +
+        "<br>Total con urgencia: $" + total.toFixed(2)
+    );
+
+});
+</script>
 
 </body>
 </html>
